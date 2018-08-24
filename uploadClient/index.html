@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Admin Page</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Page 2</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Admin form
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <form role="form" id="uploadForm" enctype="multipart/form-data" method="post" name="formInfo" >
+                                <div class="form-group">
+                                    <label>Thumbnail details</label>
+                                    <input type="text" class="form-control" name="thumbnailData" id="thumbnailData" placeholder="Enter text">
+                                </div>
+                                <div class="form-group">
+                                        <label>Accessories details</label>
+                                        <input type="text" class="form-control" name="accessoriesData" id="accessoriesData" placeholder="Enter text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Thumbnail image</label>
+                                    <input type="file" id="thumbnailPhoto" name="thumbnailPhoto" />
+                                </div>
+                                
+                                <button type="submit" class="btn btn-default" value="Send" id="submit" onclick="submitForm(this.form)">Submit Button</button>
+                                
+
+                                <button type="reset" class="btn btn-default">Reset Button</button>
+                            </form>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+   
+
+    function submitForm(form){
+    
+    var formData = new FormData(form);
+    
+    // $(form).find("input[name]").each(function (index, node) {
+    //     if(node.name == "userPhoto"){
+    //         console.log('CHy vao day');
+    //         // formData.userPhoto = node.files[0];
+    //         formData.append(node.name, node.files[0]);
+    //         console.log(`alo: ${node.name}, ${node.files[0]}`);
+    //     }
+    //     // else{
+    //     //     console.log('vao day');
+    //     //      formData[node.name] = node.value;
+    //     // }
+    //     console.log(formData);
+    // });
+    $.ajax({
+            type        : 'POST', 
+            url         : 'http://127.0.0.1:1337/FileUpload/upload', 
+            crossDomain: true,
+            data        : formData, 
+            dataType    : 'json', 
+            processData : false,
+            contentType: false
+        })
+
+            .done(function(data) {
+
+                console.log("----------"); 
+                console.log(data); 
+
+            });
+
+        // stop the form from submitting the normal way and refreshing the page
+        event.preventDefault();
+    
+
+}
+
+
+
+</script>
+
+</html>

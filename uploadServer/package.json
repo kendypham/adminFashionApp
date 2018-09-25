@@ -12,12 +12,15 @@
     "async": "2.0.1",
     "bcrypt": "^3.0.0",
     "grunt": "1.0.1",
+    "jsonwebtoken": "^8.3.0",
     "npm": "^6.4.0",
     "sails": "^1.0.2",
     "sails-hook-grunt": "^3.0.2",
     "sails-hook-orm": "^2.0.0-16",
     "sails-hook-sockets": "^1.4.0",
-    "sails-postgresql": "^1.0.1"
+    "sails-jwt": "^2.0.3",
+    "sails-postgresql": "^1.0.1",
+    "skipper-postgresql": "^0.50.0"
   },
   "devDependencies": {
     "@sailshq/eslint": "^4.19.3"

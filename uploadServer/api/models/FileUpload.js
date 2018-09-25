@@ -8,20 +8,35 @@
 module.exports = {
 
   attributes: {
-    thumbnailData : {
+    modelName : {
       type : 'string',
       required : true
     },
 
-    thumbnailPhoto : {
+    modelPhoto : {
       type : 'string',
       required : true
     },
 
-    accessoriesData : {
+    modelData : {
       type : 'string',
       required : true
     },
+
+    // thumbnailName : {
+    //   type : 'string',
+    //   required : true
+    // },
+
+    // thumbnailPhoto : {
+    //   type : 'string',
+    //   required : true
+    // },
+
+    // thumbnailData : {
+    //   type : 'string',
+    //   required : true
+    // },
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

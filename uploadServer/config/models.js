@@ -55,7 +55,6 @@ module.exports.models = {
 
   migrate: 'drop',
 
-
   /***************************************************************************
   *                                                                          *
   * Base attributes that are included in all of your models by default.      *

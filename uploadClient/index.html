@@ -48,21 +48,22 @@
 
                             <form role="form" id="uploadForm" enctype="multipart/form-data" method="post" name="formInfo" >
                                 <div class="form-group">
-                                    <label>Thumbnail details</label>
-                                    <input type="text" class="form-control" name="thumbnailData" id="thumbnailData" placeholder="Enter text">
+                                    <label>Model name</label>
+                                    <input type="text" class="form-control" name="modelName" id="modelName" placeholder="Enter text">
                                 </div>
                                 <div class="form-group">
-                                        <label>Accessories details</label>
-                                        <input type="text" class="form-control" name="accessoriesData" id="accessoriesData" placeholder="Enter text">
+                                        <label>Model details</label>
+                                        <input type="text" class="form-control" name="modelData" id="modelData" placeholder="Enter text">
                                 </div>
                                 <div class="form-group">
-                                    <label>Thumbnail image</label>
-                                    <input type="file" id="thumbnailPhoto" name="thumbnailPhoto" />
+                                    <label>Model image</label>
+                                    <input type="file" id="modelPhoto" name="modelPhoto" />
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label>Model image</label>
+                                    <input type="file" id="modelPhoto" name="modelPhoto" />
+                                </div>
                                 <button type="submit" class="btn btn-default" value="Send" id="submit" onclick="submitForm(this.form)">Submit Button</button>
-                                
-
                                 <button type="reset" class="btn btn-default">Reset Button</button>
                             </form>
                             <div></div>
@@ -81,19 +82,6 @@
     
     var formData = new FormData(form);
     
-    // $(form).find("input[name]").each(function (index, node) {
-    //     if(node.name == "userPhoto"){
-    //         console.log('CHy vao day');
-    //         // formData.userPhoto = node.files[0];
-    //         formData.append(node.name, node.files[0]);
-    //         console.log(`alo: ${node.name}, ${node.files[0]}`);
-    //     }
-    //     // else{
-    //     //     console.log('vao day');
-    //     //      formData[node.name] = node.value;
-    //     // }
-    //     console.log(formData);
-    // });
     $.ajax({
             type        : 'POST', 
             url         : 'http://127.0.0.1:1337/FileUpload/upload', 
@@ -103,12 +91,8 @@
             processData : false,
             contentType: false
         })
-
-            .done(function(data) {
-
-                console.log("----------"); 
-                console.log(data); 
-
+           .done(function(data) {
+               console.log(data);
             });
 
         // stop the form from submitting the normal way and refreshing the page

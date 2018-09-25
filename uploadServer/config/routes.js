@@ -29,7 +29,9 @@ module.exports.routes = {
   },
   'GET /upload' : {view:'index'},
   'POST /fileupload/upload' : 'FileUploadController.upload',
-  'POST /Users/signup' : 'UsersController.signup'
+  'POST /fileupload/upload1' : 'FileUploadController.upload1',
+  'POST /Users/signup' : 'UsersController.signup',
+  'POST /Users/login'  : 'UsersController.login',
 
   /***************************************************************************
   *                                                                          *
